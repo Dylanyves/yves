@@ -25,15 +25,15 @@ function works(res) {
                                     <a target="_blank">
                                         <div className="flex gap-6 cursor-pointer group">
                                             <img
-                                                className="h-24 w-24 sm:h-32 sm:w-32 lg:h-40 lg:w-40 border rounded-full"
+                                                className="h-24 w-24 sm:h-32 sm:w-32 lg:h-36 lg:w-36 border rounded-full"
                                                 src={work.projectImage.url}
-                                                alt=""
+                                                alt={work.projectName}
                                             />
                                             <div className="my-auto">
-                                                <h4 className="">
+                                                <h4 className="lg:text-lg">
                                                     {work.projectName}
                                                 </h4>
-                                                <p className="group-hover:underline text-sm text-gray-500 ">
+                                                <p className="group-hover:underline text-sm lg:text-base text-gray-500 ">
                                                     {work.projectDescription}
                                                 </p>
                                             </div>
