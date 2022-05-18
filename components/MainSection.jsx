@@ -15,7 +15,7 @@ function MainSection() {
                     </article>
                 </header>
 
-                <ul className="mt-20 flex flex-col space-y-2 max-w-md m-auto font-light">
+                <ul className="mb-10 mt-20 flex flex-col space-y-2 max-w-md m-auto font-light">
                     {socialMedia.map((item, index) => (
                         <li key={index}>
                             <a
