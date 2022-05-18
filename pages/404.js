@@ -11,7 +11,7 @@ function Custom404() {
                 <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2">
                     <h1 className="text-7xl md:text-8xl">404</h1>
                     <p className="text-sm md:text-base">
-                        The page you're looking for doesn't exist
+                        The page youre looking for doesn&apos;t exist
                     </p>
                 </div>
             </div>

@@ -22,6 +22,7 @@ function MainSection() {
                                 className="p-2 block border border-black text-center hover:bg-black hover:text-white ease duration-100"
                                 href={item.link}
                                 target="_blank"
+                                rel="noreferrer"
                             >
                                 {item.name}
                             </a>
