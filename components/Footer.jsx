@@ -96,7 +96,11 @@ function Footer() {
                     <ul className="flex flex-wrap gap-2 font-light text-xs md:text-sm">
                         {socialMedia.map((item, index) => (
                             <li key={index} className="cursor-pointer">
-                                <a href={item.link} target="_blank">
+                                <a
+                                    href={item.link}
+                                    target="_blank"
+                                    rel="noreferrer"
+                                >
                                     <span className="px-2 py-[2px] bg-yellow-600 hover:bg-yellow-700 ease duration-100">
                                         {item.name}
                                     </span>
