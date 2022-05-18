@@ -7,18 +7,15 @@ function FAQSection() {
     const [faqs, setFaqs] = useState(null);
 
     useEffect(() => {
-        fetch(
-            getFAQs()
-                .then((res) => {
-                    if (res.faqs) {
-                        setFaqs(res.faqs[0].faqs.raw.children);
-                    }
-                    throw Error("Error during fetching the data");
-                })
-                .catch((err) => {
-                    console.log(err.message);
-                })
-        );
+        async function getData() {
+            const res = await getFAQs();
+            if (typeof res.faqs) {
+                setFaqs(res.faqs[0].faqs.raw.children);
+            } else {
+                console.log("error");
+            }
+        }
+        getData();
     }, []);
 
     function toggle(i) {

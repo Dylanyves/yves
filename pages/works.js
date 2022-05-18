@@ -4,7 +4,6 @@ import Head from "next/head";
 import { getWorks } from "../services/index";
 
 function works(res) {
-    console.log(res);
     return (
         <>
             <Head>

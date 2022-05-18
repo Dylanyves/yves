@@ -73,8 +73,6 @@ function Footer() {
                     });
                 }, 5000);
             });
-        } else {
-            console.log("fail");
         }
     }, [formErrors]);
 
@@ -153,14 +151,17 @@ function Footer() {
                             } else if (input.type === "textarea") {
                                 return (
                                     <div key={index} className="mb-4">
-                                        <label className="text-xs text-gray-400">
+                                        <label
+                                            htmlFor="message"
+                                            className="text-xs text-gray-400"
+                                        >
                                             {input.label}
                                         </label>
                                         <textarea
                                             value={formValues[`${input.name}`]}
                                             onChange={inputHandler}
                                             name={input.name}
-                                            id=""
+                                            id="message"
                                             cols="30"
                                             rows="6"
                                             className="text-sm focus:outline-0 border-2 focus:border-gray-400 p-1 font-sm w-full min-h-[100px] max-h-[200px] text-black"

@@ -6,19 +6,15 @@ import { getExternalLinks } from "../services/index";
 function Navbar() {
     const [links, setLinks] = useState();
     useEffect(() => {
-        fetch(
-            getExternalLinks()
-                .then((res) => {
-                    if (typeof res === "object") {
-                        setLinks(res.externalLinks);
-                    } else {
-                        throw Error("Could not fetch links");
-                    }
-                })
-                .catch((err) => {
-                    console.log(err.message);
-                })
-        );
+        async function getData() {
+            const res = await getExternalLinks();
+            if (typeof res === "object") {
+                setLinks(res.externalLinks);
+            } else {
+                console.log("error");
+            }
+        }
+        getData();
     }, []);
 
     return (
@@ -66,7 +62,7 @@ function Navbar() {
                                 }
                             })}
                         <Link href="#contact">
-                            <span className="bg-yellow-500 hover:bg-yellow-600 ease duration-200 text-white py-1 px-2 cursor-pointer">
+                            <span className="bg-yellow-600 hover:bg-yellow-700 ease duration-200 text-white py-1 px-2 cursor-pointer">
                                 Contact
                             </span>
                         </Link>

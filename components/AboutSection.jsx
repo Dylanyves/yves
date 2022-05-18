@@ -6,19 +6,15 @@ function AboutSection() {
     const [description, setDescription] = useState(null);
 
     useEffect(() => {
-        fetch(
-            getAboutDescription()
-                .then((res) => {
-                    if (typeof res === "object") {
-                        setDescription(res.aboutMes[0]);
-                    } else {
-                        throw Error("Could not fetch about description");
-                    }
-                })
-                .catch((err) => {
-                    console.log(err.message);
-                })
-        );
+        async function getData() {
+            const res = await getAboutDescription();
+            if (typeof res === "object") {
+                setDescription(res.aboutMes[0]);
+            } else {
+                console.log("error");
+            }
+        }
+        getData();
     }, []);
 
     return (

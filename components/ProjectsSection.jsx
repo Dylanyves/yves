@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
+import Image from "next/image";
 
 import { getLatestWorks } from "../services/index";
 
@@ -7,19 +8,15 @@ function ProjectsSection() {
     const [works, setWorks] = useState(null);
 
     useEffect(() => {
-        fetch(
-            getLatestWorks()
-                .then((res) => {
-                    if (typeof res === "object") {
-                        setWorks(res.portfolioProjects);
-                    } else {
-                        throw Error("Could not fetch latest works");
-                    }
-                })
-                .catch((err) => {
-                    console.log(err.message);
-                })
-        );
+        async function getData() {
+            const res = await getLatestWorks();
+            if (typeof res === "object") {
+                setWorks(res.portfolioProjects);
+            } else {
+                console.log("error");
+            }
+        }
+        getData();
     }, []);
 
     return (
@@ -42,9 +39,9 @@ function ProjectsSection() {
                                 <a target="_blank">
                                     <div className="flex md:items-center md:flex-col gap-6 cursor-pointer group">
                                         <img
-                                            className="h-24 w-24 sm:h-32 sm:w-32 lg:h-40 lg:w-40 border rounded-full"
+                                            className="h-24 w-24 sm:h-32 sm:w-32 lg:h-36 lg:w-36 border rounded-full"
                                             src={work.projectImage.url}
-                                            alt=""
+                                            alt={work.projectName}
                                         />
                                         <div className="m-auto md:text-center">
                                             <h4 className="xl:text-lg">
